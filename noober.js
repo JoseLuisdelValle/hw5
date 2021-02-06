@@ -69,19 +69,15 @@ function renderRides(ridesArray) {
 
 window.addEventListener('DOMContentLoaded', function() {
   // YOUR CODE
-// (1 point) Add an event listener to the "All Rides" button, so that when it is clicked, there is some output in the console to indicate which button was clicked.
+
+//all rides
   let allridesButton = document.querySelector('#all-filter')
   allridesButton.addEventListener('click', async function(event) {
     event.preventDefault() 
-
-  //   let output = document.querySelector('.rides')
-  //  output.insertAdjacentHTML('beforeend','<p>The all rides button was clicked</p>')
-
-// (1 point) When the event occurs: request the ride data from our "API"
-
     let response = await fetch('https://kiei451.com/api/rides.json')
     let json = await response.json()
     let ridesArray = json
+    document.querySelector('.rides').innerHTML = ""
     renderRides(ridesArray)
   })
 
@@ -97,6 +93,7 @@ window.addEventListener('DOMContentLoaded', function() {
       if (levelOfService(ride) == 'Noober Purple') {
         purpleArray.push(ride)
       } }
+    document.querySelector('.rides').innerHTML = ""
     renderRides(purpleArray)
   })
 
@@ -112,6 +109,7 @@ window.addEventListener('DOMContentLoaded', function() {
       if (levelOfService(ride) == 'Noober Pool') {
         poolArray.push(ride)
       } }
+      document.querySelector('.rides').innerHTML = ""
     renderRides(poolArray)
   })
 
@@ -127,6 +125,7 @@ window.addEventListener('DOMContentLoaded', function() {
       if (levelOfService(ride) == 'Noober XL') {
         xlArray.push(ride)
       } }
+      document.querySelector('.rides').innerHTML = ""
     renderRides(xlArray)
   })
 
@@ -142,6 +141,7 @@ window.addEventListener('DOMContentLoaded', function() {
       if (levelOfService(ride) == 'Noober X') {
         xArray.push(ride)
       } }
+      document.querySelector('.rides').innerHTML = ""
     renderRides(xArray)
   })
 
